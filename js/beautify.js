@@ -7,6 +7,11 @@
 (function () {
     'use strict';
 
+    /* ── 0. Mobile detection ──────────────────────────────── */
+    function isMobile() {
+        return window.matchMedia('(max-width: 768px)').matches;
+    }
+
     /* ── 1. Mark active nav link ──────────────────────────── */
     function highlightActiveNav() {
         const page = location.pathname.split('/').pop() || 'index.html';
@@ -40,7 +45,7 @@
 
                 if (target === 0) return;
 
-                const duration = 900;
+                const duration = isMobile() ? 500 : 900;
                 const start = performance.now();
 
                 function tick(now) {
@@ -145,7 +150,8 @@
         cards.forEach(function (card, i) {
             card.style.opacity = '0';
             card.style.transform = 'translateY(16px)';
-            card.style.transition = 'opacity 0.35s ease ' + (i * 0.04) + 's, transform 0.35s ease ' + (i * 0.04) + 's, border-left-color 0.18s ease, box-shadow 0.18s ease';
+            var delay = isMobile() ? 0 : (i * 0.04);
+            card.style.transition = 'opacity 0.35s ease ' + delay + 's, transform 0.35s ease ' + delay + 's, border-left-color 0.18s ease, box-shadow 0.18s ease';
         });
 
         const io = new IntersectionObserver(function (entries) {
@@ -275,6 +281,39 @@
         }
     }
 
+    /* ── 12. Orders table → data-label injector ───────────── *
+     * CSS hides thead on mobile and uses td[data-label]::before
+     * to render a column header above each cell value.
+     * This function stamps data-label on every td so that works.
+     * ─────────────────────────────────────────────────────── */
+    function mobileOrdersTable() {
+        var table = document.querySelector('.orders-table');
+        if (!table) return;
+
+        // Capture header text once
+        var headers = Array.from(table.querySelectorAll('thead th'))
+            .map(function (th) { return th.textContent.trim(); });
+
+        function labelRows() {
+            table.querySelectorAll('tbody tr').forEach(function (row) {
+                row.querySelectorAll('td').forEach(function (td, i) {
+                    if (!td.dataset.label && headers[i]) {
+                        td.dataset.label = headers[i];
+                    }
+                });
+            });
+        }
+
+        // Stamp existing rows
+        labelRows();
+
+        // Stamp rows added dynamically by app.js
+        var tbody = table.querySelector('tbody');
+        if (tbody) {
+            new MutationObserver(labelRows).observe(tbody, { childList: true, subtree: true });
+        }
+    }
+
     /* ── Init ─────────────────────────────────────────────── */
     function init() {
         highlightActiveNav();
@@ -288,6 +327,7 @@
         formLoadingStates();
         enhanceCartQuantities();
         polishPageTitle();
+        mobileOrdersTable();
     }
 
     if (document.readyState === 'loading') {
