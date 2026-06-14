@@ -1019,79 +1019,333 @@ a button {
     width: 100%;
 }
 
-/* Responsive */
+/* ── Responsive ──────────────────────────────────────────────── */
+
+/* Tablet (≤ 900px) — 2-col products, 2-col stats */
+@media (max-width: 900px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 24px;
+        gap: 16px;
+    }
+
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-table {
+        padding: 20px 24px 40px;
+    }
+}
+
+/* Mobile (≤ 768px) */
 @media (max-width: 768px) {
+
+    /* Header */
     header {
-        padding: 0 20px;
+        padding: 0 16px;
+        height: 56px;
     }
 
     .logo {
         font-size: 16px;
     }
 
-    nav a {
-        font-size: 13px;
-        padding: 5px 10px;
+    nav {
+        gap: 2px;
     }
 
+    nav a {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+
+    /* Hero */
     .hero {
-        padding: 44px 20px 40px;
+        padding: 40px 20px 36px;
     }
 
     .hero h1 {
-        font-size: 26px;
+        font-size: 24px;
     }
 
+    .hero p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    #searchInput {
+        padding: 12px 16px;
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    /* Products */
     .products {
         grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 14px;
+        padding: 16px;
+        gap: 12px;
     }
 
-    .dashboard {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 20px;
+    /* Page header */
+    .page-header {
+        padding: 20px 16px 16px;
     }
 
-    .dashboard-section {
-        margin: 14px 16px;
-        padding: 18px 18px;
+    .page-header h1 {
+        font-size: 21px;
+    }
+
+    /* Cart */
+    .cart-container {
+        padding: 16px;
     }
 
     .cart-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 14px;
+        gap: 12px;
+        padding: 16px;
     }
 
-    .page-header {
-        padding: 24px 20px 18px;
+    .cart-controls {
+        width: 100%;
+        justify-content: space-between;
     }
 
-    .orders-table {
+    .remove-btn {
+        flex: 1;
+    }
+
+    .cart-summary {
+        padding: 20px 16px 32px;
+    }
+
+    .cart-summary button {
+        max-width: 100%;
+    }
+
+    /* Checkout */
+    .checkout-container {
+        padding: 0 16px 40px;
+        margin: 16px auto;
+    }
+
+    /* Dashboard stat grid */
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 16px 16px 8px;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px 16px;
+    }
+
+    /* Dashboard sections */
+    .dashboard-section {
+        margin: 12px 16px;
+        padding: 18px 16px;
+        overflow-x: auto;   /* fallback scroll for any table overflow */
+    }
+
+    .dashboard-section h2 {
+        font-size: 12px;
+    }
+
+    /* Quick actions — full-width stack */
+    .quick-actions {
+        flex-direction: column;
+    }
+
+    .quick-actions a {
+        width: 100%;
+    }
+
+    .quick-actions button {
+        width: 100%;
+        padding: 11px;
+    }
+
+    /* ── Orders table: card view (data-label injected by beautify.js) ── */
+    .orders-table thead {
+        display: none;
+    }
+
+    .orders-table,
+    .orders-table tbody,
+    .orders-table tr,
+    .orders-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .orders-table tr {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--primary);
+        border-radius: var(--radius-md);
+        margin-bottom: 12px;
+        padding: 4px 0;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .orders-table tbody tr:hover {
+        background: var(--primary-50);
+    }
+
+    .orders-table td {
+        padding: 8px 14px;
+        border: none;
+        border-bottom: 1px solid var(--border);
         font-size: 13px;
     }
 
-    .orders-table th,
-    .orders-table td {
-        padding: 10px 10px;
+    .orders-table td:last-child {
+        border-bottom: none;
     }
 
-    .checkout-container {
-        padding: 0 16px 40px;
+    /* Label pulled from data-label attribute set by beautify.js */
+    .orders-table td[data-label]::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: var(--text-muted);
+        margin-bottom: 3px;
+        font-family: var(--sans);
+    }
+
+    /* Keep mono column styles but fix size for card layout */
+    .orders-table td:nth-child(1),
+    .orders-table td:nth-child(4) {
+        font-size: 13px;
+    }
+
+    .orders-table select {
+        width: 100%;
+        padding: 8px;
+    }
+
+    /* Admin: product form */
+    .product-form-section {
+        margin: 16px auto;
+        padding: 0 16px;
+    }
+
+    .product-form-section form {
+        padding: 20px 16px;
+    }
+
+    .products-table {
+        padding: 16px 16px 32px;
+    }
+
+    .admin-product-card {
+        padding: 16px;
+    }
+
+    .admin-product-actions {
+        flex-wrap: wrap;
+    }
+
+    .admin-product-actions button {
+        flex: 1;
+        min-width: 100px;
+    }
+
+    /* Admin login */
+    .admin-form {
+        margin: 0 16px;
+        padding: 28px 20px;
+    }
+
+    /* Order success */
+    section[style*="text-align:center"] {
+        padding: 48px 20px !important;
     }
 }
 
+/* Small mobile (≤ 480px) */
 @media (max-width: 480px) {
+    header {
+        height: 52px;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 4px 7px;
+    }
+
+    .hero h1 {
+        font-size: 20px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .dashboard {
+        gap: 10px;
+        padding: 12px 12px 6px;
+    }
+
+    .stat-card {
+        padding: 14px 12px;
+    }
+
+    .stat-card h2 {
+        font-size: 24px;
+    }
+
+    .admin-form {
+        margin: 0 12px;
+        padding: 24px 16px;
+    }
+
+    section[style*="text-align:center"] h1 {
+        font-size: 22px;
+    }
+}
+
+/* Very small (≤ 360px) */
+@media (max-width: 360px) {
+    .logo {
+        font-size: 14px;
+    }
+
+    nav a {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+
     .dashboard {
         grid-template-columns: 1fr;
     }
 
     .stat-card h2 {
-        font-size: 26px;
-    }
-
-    .hero h1 {
         font-size: 22px;
     }
+}
+
+.mobile-logo{
+    display:none;
+}
+
+@media(max-width:600px){
+
+    .desktop-logo{
+        display:none;
+    }
+
+    .mobile-logo{
+        display:inline;
+    }
+
 }
