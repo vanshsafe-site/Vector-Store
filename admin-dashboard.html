@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard | Vector Store</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Vector Store Admin
+    </div>
+
+    <nav>
+        <a href="admin-dashboard.html">Dashboard</a>
+        <a href="admin-products.html">Products</a>
+        <a href="admin-orders.html">Orders</a>
+        <a href="#" id="logoutBtn">Logout</a>
+    </nav>
+
+</header>
+
+<section class="page-header">
+
+    <h1>Admin Dashboard</h1>
+
+    <p>
+        Welcome back. Here's what's happening in your store.
+    </p>
+
+</section>
+
+<!-- Stats -->
+
+<section class="dashboard">
+
+    <div class="stat-card">
+        <h2 id="totalOrders">0</h2>
+        <p>Total Orders</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 id="pendingOrders">0</h2>
+        <p>Pending Orders</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 id="totalProducts">0</h2>
+        <p>Products</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 id="totalRevenue">₹0</h2>
+        <p>Revenue</p>
+    </div>
+
+</section>
+
+<!-- Quick Actions -->
+
+<section class="dashboard-section">
+
+    <h2>Quick Actions</h2>
+
+    <div class="quick-actions">
+
+        <a href="admin-products.html">
+            <button>Add Product</button>
+        </a>
+
+        <a href="admin-orders.html">
+            <button>View Orders</button>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- Recent Orders -->
+
+<section class="dashboard-section">
+
+    <h2>Recent Orders</h2>
+
+    <div id="recentOrders">
+
+        <div class="admin-product-card">
+
+            <h3>ABC Medical Store</h3>
+
+            <p>₹4,250</p>
+
+            <p>Status: Pending</p>
+
+        </div>
+
+        <div class="admin-product-card">
+
+            <h3>XYZ Pharmacy</h3>
+
+            <p>₹8,120</p>
+
+            <p>Status: Accepted</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Low Stock -->
+
+<section class="dashboard-section">
+
+    <h2>Low Stock Alerts</h2>
+
+    <div id="lowStockProducts">
+
+        <div class="admin-product-card">
+
+            <h3>Paracetamol 500mg</h3>
+
+            <p>Only 4 units remaining</p>
+
+        </div>
+
+        <div class="admin-product-card">
+
+            <h3>Vitamin C Tablets</h3>
+
+            <p>Only 2 units remaining</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- Store Overview -->
+
+<section class="dashboard-section">
+
+    <h2>Store Overview</h2>
+
+    <div class="admin-product-card">
+
+        <p>
+            Vector Store is currently managing
+            <strong id="storeProducts">0</strong>
+            products and
+            <strong id="storeOrders">0</strong>
+            orders.
+        </p>
+
+        <br>
+
+        <p>
+            Use the Products section to manage inventory and
+            the Orders section to process incoming orders.
+        </p>
+
+    </div>
+
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/app.js"></script>
+<script src="js/beautify.js"></script>
+</body>
+</html>

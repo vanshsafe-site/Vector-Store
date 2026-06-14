@@ -1,0 +1,313 @@
+:root{
+    --primary:#2563eb;
+    --dark:#111827;
+    --light:#f8fafc;
+    --success:#16a34a;
+    --danger:#dc2626;
+    --border:#e5e7eb;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:var(--light);
+    color:var(--dark);
+}
+
+header{
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    border-bottom:1px solid var(--border);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--dark);
+    font-weight:600;
+}
+
+.hero{
+    text-align:center;
+    padding:50px 20px;
+}
+
+.hero h1{
+    margin-bottom:10px;
+}
+
+.hero p{
+    margin-bottom:20px;
+}
+
+#searchInput{
+    width:100%;
+    max-width:500px;
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:30px;
+}
+
+.product-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    border:1px solid var(--border);
+}
+
+.product-card h3{
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.stock{
+    margin-bottom:15px;
+}
+
+.in-stock{
+    color:var(--success);
+}
+
+.out-stock{
+    color:var(--danger);
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:var(--primary);
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+.page-header{
+    padding:30px;
+    text-align:center;
+}
+
+.cart-container{
+    padding:20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.cart-item{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:15px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.cart-info h3{
+    margin-bottom:8px;
+}
+
+.cart-controls{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.qty-btn{
+    width:40px;
+    height:40px;
+}
+
+.remove-btn{
+    background:var(--danger);
+}
+
+.cart-summary{
+    padding:30px;
+    text-align:center;
+}
+
+.cart-summary button{
+    max-width:250px;
+}
+.checkout-container{
+    max-width:800px;
+    margin:auto;
+    padding:20px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+}
+
+.order-summary{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px;
+    margin:20px 0;
+}
+
+.checkout-item{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+}
+.product-form-section{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.product-form-section form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.product-form-section input,
+.product-form-section textarea{
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+}
+
+.products-table{
+    padding:30px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.admin-product-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:15px;
+}
+
+.admin-product-actions{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.edit-btn{
+    background:#16a34a;
+}
+
+.delete-btn{
+    background:#dc2626;
+}
+
+.dashboard-section{
+    background:white;
+    margin:20px;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid var(--border);
+}
+
+.dashboard-section h2{
+    margin-bottom:15px;
+}
+
+.quick-actions{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.quick-actions a{
+    text-decoration:none;
+}
+
+.quick-actions button{
+    width:auto;
+    padding:12px 20px;
+}
+
+.dashboard-section .admin-product-card{
+    margin-bottom:10px;
+}
+.orders-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#fff;
+
+}
+
+.orders-table th,
+.orders-table td{
+
+    border:1px solid #ddd;
+
+    padding:12px;
+
+    text-align:left;
+
+}
+
+.orders-table th{
+
+    background:#f5f5f5;
+
+}
+
+.orders-table select{
+
+    padding:6px;
+
+}

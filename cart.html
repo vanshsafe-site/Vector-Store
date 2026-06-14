@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | Vector Store</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+
+    <div class="logo">
+        Vector Store
+    </div>
+
+    <nav>
+        <a href="index.html">Products</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+
+</header>
+
+<section class="page-header">
+
+    <h1>Your Cart</h1>
+
+</section>
+
+<section id="cartContainer" class="cart-container">
+
+</section>
+
+<section class="cart-summary">
+
+    <h2>
+        Total: ₹<span id="cartTotal">0</span>
+    </h2>
+
+    <a href="checkout.html">
+        <button id="checkoutBtn">
+            Proceed To Checkout
+        </button>
+    </a>
+
+</section>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+<script src="js/app.js"></script>
+<script src="js/beautify.js"></script>
+</body>
+</html>
